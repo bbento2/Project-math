@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset = "UTF-8"> <!--ตัวอักษรเข้ารหัสของ Unicode-->
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- width=device-width คือ การกำหนดขนาดหน้าเว็บให้ปรับขนาดตามความละเอียดหน้าจอ ส่วน initial-scale=1.0 คือการกำหนดขนาด scale ของงานให้เท่ากับ 1เท่าของหน้าจอ-->
+        <link rel = "shortcut icon" type ="x-icon" href="picture/support.png">  <!--การลิ้งค์รูปไอคอนให้เป็นรูปไอคอนเว็บที่
+            เราต้องการ-->
+        <title>Help</title>
+        <link rel = "stylesheet" href="Helpstyle.css">
+        <style>
+                body{
+                background-image: url("picture/bg2.jpg");
+                background-attachment: fixed;  /*เพื่อให้รูปพื้นหลังไม่เลื่อนตามเวลาเลื่อนscrollbar*/
+                background-size: 100% 100%;/*ให้รูปมีขนาดเท่ากับหน้าจอ*/
+                background-color: rgba(57,179,250,0.7); /*สีพื้นหลังเวลาเลื่อนเว็บสิ้นสุดหน้าแล้ว*/
+                background-blend-mode: multiply; /*ทำให้พื้นหลังมืดลง*/
+                font-size: 1.1em;
+                font-family: 'Poppins',sans-serif;
+                }
+                h1{
+                 text-shadow: 3px 2px rgb(134, 140, 141);  /*เงาของตัวอักษรให้มีความหนา 3px เบลอ 2 px สีเงา*/
+                }
+        </style>
+    </head>
+    <body> <!--คือคำสั่งบอกส่วนเนื้อเรื่อง ที่จะถูกแสดงผลในเว็ปบราวเซอร์-->
+        <div class="banner"> <!--menu web-->
+            <div class="navBar"> <!--menu web-->
+                <a href="homepage.html"><img src="./picture/logo.png" class="logo"></a>
+                <ul> <!--list menu webpage-->
+                    <li><a href="Games.html">Play Games</a></li>
+                    <li><a href="Store.html">Store</a></li>
+                    <li><a href="Help.html">Help</a></li>
+                </ul>
+            </div>
+                <div class = "heading"> <!--หัวข้อฟอร์ม-->
+                    <h1 id="head">Problem Form</h1> 
+                </div>
+                <form>
+                    <div id="content1"> <!--ข้อมูลในฟอร์ม-->
+                        <label><b>Name</b></label><br><br>
+                        <input type="name" name="name" placeholder="Enter your name" class="box"> <br><br>
+                        <label><b>Email</b></label><br><br>
+                        <input type="email" name="email" placeholder="Enter your email" class="box"> <br><br>
+                    <div>
+                    <label id="head2"><b>Remaining problems</b></label> <br><br> <!--ปัญหาที่พบ-->
+                    <textarea placeholder="Enter Your Remaining problems" ></textarea><br><br> <!--ตัวอย่างข้อความที่ขึ้นข้างในฟอร์มที่กรอก-->
+                </div>
+                    <button onclick="Submit()"><h3>Submit</h3></button>
+                    <script src="noti1.js"></script>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

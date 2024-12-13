@@ -1,0 +1,125 @@
+<!doctype html>
+<lang="en"> <!--กำหนดให้เว็บใช้ภาษา Eng-->
+    <head>
+        <meta charset = "UTF-8"> <!--ตัวอักษรเข้ารหัสของ Unicode-->
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- width=device-width คือ การกำหนดขนาดหน้าเว็บให้ปรับขนาดตามความละเอียดหน้าจอ ส่วน initial-scale=1.0 คือการกำหนดขนาด scale ของงานให้เท่ากับ 1เท่าของหน้าจอ-->
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel = "shortcut icon" type ="x-icon" href="picture/carts.png">  <!--การลิ้งค์รูปไอคอนให้เป็นรูปไอคอนเว็บที่
+            เราต้องการ-->
+        <title>Store</title>
+        <link rel = "stylesheet" href="Storestyle.css">
+        </head>
+        <style>
+                body{
+                background-attachment: fixed;  /*เพื่อให้รูปพื้นหลังไม่เลื่อนตามเวลาเลื่อนscrollbar*/
+                background-size: 100% 100% ; /*ให้รูปมีขนาดเท่ากับหน้าจอ*/
+                background-repeat: no-repeat; /**ไม่ให้พื้นหลังใช้ภาพเดิมซ้ำกัน*/
+                background-blend-mode: multiply; /*ทำให้พื้นหลังมืดลง*/
+                }
+        </style>
+        <div class="dropdown"> <!--แถบเมนู-->
+            <button class="dropbtn"><img src="picture/startup.png" class="logo" ></button>
+        <div class="dropdown-content"> <!--เมนูย่อย-->
+            <a href="homepage.html">Home</a>
+            <a href="Games.html">Games</a>
+            <a href="Help.html">Help</a>
+            </div>
+            </div>
+                <section class="slider">
+                    <div class="card">
+                        <div class="card-content">
+                            <img src="picture/potion.png" alt="" class="card-img">
+                            <h1 class="card-title">Potion Freeze</h1> 
+                            <div class="card-body"> <!--เนื้อหาในการ์ด-->
+                                <div class="card-star">
+                                    <span class="rating-value">Coming Soon</span>
+                                    <span class="star">&#9733;</span>
+                                </div>
+                                <p class="card-price">50 coins</p>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-success">Buy Now</button>
+                                <button class="btn btn-border add-to-cart">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <img src="picture/potion1.png" alt="" class="card-img">
+                            <h1 class="card-title">Potion shoot faster
+                            </h1>
+                            <div class="card-body">
+                                <div class="card-star">
+                                    <span class="rating-value">Coming Soon</span>
+                                    <span class="star">&#9733;</span>
+                                </div>
+                                <p class="card-price">50 coins</p>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-success">Buy Now</button>
+                                <button class="btn btn-border add-to-cart">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <img src="picture/potion3.png" alt="" class="card-img">
+                            <h1 class="card-title">Potion Fast</h1>
+                            <div class="card-body">
+                                <div class="card-star">
+                                    <span class="rating-value">Coming Soon</span>
+                                    <span class="star">&#9733;</span>
+                                </div>
+                                <p class="card-price">50 coins</p>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-success">Buy Now</button>
+                                <button class="btn btn-border add-to-cart">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <img src="picture/potion2.png" alt="" class="card-img">
+                            <h1 class="card-title">Potion invisible</h1>
+                            <div class="card-body">
+                                <div class="card-star">
+                                    <span class="rating-value">Coming Soon</span>
+                                    <span class="star">&#9733;</span>
+                                </div>
+                                <p class="card-price">100 coins</p>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-success">Buy Now</button>
+                                <button class="btn btn-border add-to-cart">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                            <img src="picture/potion4.png" alt="" class="card-img">
+                            <h1 class="card-title">Potion Heal </h1>
+                            <div class="card-body">
+                                <div class="card-star">
+                                    <span class="rating-value">Coming Soon</span>
+                                    <span class="star">&#9733;</span>
+                                </div>
+                                <p class="card-price">100 coins</p>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-success">Buy Now</button>
+                                <button class="btn btn-border add-to-cart">Add To Cart</button>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <span class="arrow left">&#129120;</span>
+                    <span class="arrow right">&#129122;</span>
+            
+                </section>
+                <div class="shopping-cart" data-product-count="0">
+                    <span class="cart-icon">&#128722;</span>
+                </div>
+            <script src="Storejs.js"></script>
+    </body>
+</html>

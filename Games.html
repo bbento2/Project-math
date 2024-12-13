@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en"> <!--กำหนดให้เว็บใช้ภาษา Eng-->
+    <head>
+        <meta charset = "UTF-8"> <!--ตัวอักษรเข้ารหัสของ Unicode-->
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- width=device-width คือ การกำหนดขนาดหน้าเว็บให้ปรับขนาดตามความละเอียดหน้าจอ ส่วน initial-scale=1.0 คือการกำหนดขนาด scale ของงานให้เท่ากับ 1เท่าของหน้าจอ-->
+        <link rel = "shortcut icon" type ="x-icon" href="picture/joystick.png">  <!--การลิ้งค์รูปไอคอนให้เป็นรูปไอคอนเว็บที่
+            เราต้องการ-->
+        <title>Games</title>
+        <link rel = "stylesheet" href="GamesStyle.css">
+        <style>
+                body{
+                background-image: url("picture/bg4.jpg");
+                background-attachment: fixed;  /*เพื่อให้รูปพื้นหลังไม่เลื่อนตามเวลาเลื่อนscrollbar*/
+                background-size: 100% 100% ; /*ให้รูปมีขนาดเท่ากับหน้าจอ*/
+                background-repeat: no-repeat; /**ไม่ให้พื้นหลังใช้ภาพเดิมซ้ำกัน*/
+                background-blend-mode: multiply; /*ทำให้พื้นหลังมืดลง*/
+                }
+
+        </style>
+        <script src="Games.js" defer> /* defer ช่วยให้ HTML parser ช่วยให้เราจัดการกับข้อมูลฝั่ง Server ให้ทำงานได้ง่ายมากๆ โดยที่โปรแกรมไม่หยุดทำงาน*/
+        </script>
+    </head>
+    <body>
+        <div class="dropdown"> <!--แถบเมนู-->
+            <button class="dropbtn"><img src="./picture/saturn.png" class="logo" ></button>
+        <div class="dropdown-content"> <!--เมนูย่อย-->
+            <a href="homepage.html">Home</a>
+            <a href="Store.html">Store</a>
+            <a href="Help.html">Help</a>
+            <div class="bg-music"> <!--ปุ่มกดเล่นเพลง-->
+                <img src = "./picture/music.png" id="icon" >
+            </div>
+            <audio id="mySong"> <!--เพลง-->
+                <source src="./music/soundgames.mp3" type="audio/mp3">
+            </audio>
+            </div>
+            </div>
+            <canvas></canvas> <!--จรวด-->
+            <script>
+            var mySong = document.getElementById("mySong"); /*ให้ใช้ไฟล์ css ในฟังก์ชัน mySong*/
+            var icon = document.getElementById("icon"); /*ให้ใช้ไฟล์ css ในฟังก์ชัน icon */
+
+            icon.onclick = function(){  /*คำสั่งให้เปิดหรือปิดเพลง*/
+                if(mySong.paused){ /*เมื่อกดปุ่มที่ไอคอนเพลง*/
+                mySong.play(); /*เพลงจะดังขึ้น*/
+                icon.src = "picture/mute.png"; /*รูปที่ไอคอนจะเปลี่ยนเป็นรูป mute*/
+                }
+                else{ /*แต่ถ้าเรากดปิดเพลงที่ไอคอน*/
+                mySong.pause(); /*เพลงจะหยุด*/
+                icon.src = "picture/music.png";/*และจะเปลี่ยนรูปไอคอนเป็น music แทน*/
+                }
+            }
+            </script>
+    </body>
+</html>

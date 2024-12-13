@@ -1,0 +1,147 @@
+*{
+    margin: 0; /*ระยะห่างภายนอกกรอบ เป็น0*/
+    padding: 0; /*ช่องว่างภายในกรอบ เป็น0*/
+    font-family:'Times New Roman', Times, serif;
+}
+
+.banner{ /*เมนู*/
+    width: 100%; /*ความกว้าง 100%*/
+    height: 100vh;
+    background-size: cover; /*รูปภาพแสดงผลตามขนาดพื้นที่ที่ถูกต้อง*/
+    background-position: center; /*ให้เมนูอยู่ตรงกลางและเนื้อหาเรียงไปทางแนวนอน*/
+}
+
+.navBar{  /*เมนู*/
+    width: 80%; /*ความกว้าง 80%*/
+    margin:auto; /*ระยะห่างภายนอกกรอบ จัดอัตโนมัติ ด้านนอก*/
+    padding: 35px 0; /*เว้นระยะขอบบนและล่าง ด้านละ 35 px และ เว้นระยะขอบซ้ายและขวา อัตโนมัติ ด้านใน*/
+    display: flex; /*วางแนวนอนของในกล่องก็ไหลตามแนวนอน*/
+    align-items: center; 
+    justify-content: space-between; /*จัด Flex Item ให้อยู่ระหว่างกัน*/
+    z-index: 1; /*มีค่าเป็นบวก เมนูจะอยู่ข้างบน*/
+}
+
+.logo{ /*โลโก้เกม*/
+    width: 150px; /*ความกว้าง 150px*/
+    cursor: pointer; /*คำสั่งเปลี่ยนการแสดงผลของเมาส์จากลูกศร*/
+    padding: 1rem; /*ช่องว่างภายในกรอบ เป็น 1 rem โดยให้ค่าของมันไม่ได้ขึ้นอยู่กับ element parent แต่จะขึ้นอยู่กับขนาดของ root element */
+}
+
+.navBar ul li{
+    display: flex; /*วางแนวนอนของในกล่องก็ไหลตามแนวนอน*/
+    list-style: none;
+    display: inline-block; /*อยู่ในบรรทัดเดียวกัน*/
+    margin: 0 20px; /*เว้นระยะขอบบนและล่าง เป็น 0 และ เว้นระยะขอบซ้ายและขวา ด้านละ 20px  ด้านนอก*/
+    padding:1rem; /*ช่องว่างภายในกรอบ เป็น 1 rem โดยให้ค่าของมันไม่ได้ขึ้นอยู่กับ element parent แต่จะขึ้นอยู่กับขนาดของ root element */
+    top:0;/*ตำแหน่งก็จะอยู่บนซ้ายของ browser */
+    left:0;/*ตำแหน่งก็จะอยู่บนซ้ายของ browser */
+    z-index: 1; /*มีค่าเป็นบวก เมนูจะอยู่ข้างบน*/
+}
+
+.navBar ul li a{ /*เมนู*/
+    text-decoration: none; /*ไม่ให้มีเส้นใต้ข้อความ*/
+    color: white;
+    text-transform: uppercase; /* กำหนดให้ทุกๆ ตัวเป็นตัวใหญ่*/
+    font-size: 1.25vw;
+    font-weight: 400;/*ขนาดฟ้อน 400*/
+    letter-spacing: 0.15vw;/*กำหนดระยะห่างระหว่างตัวอักษร*/
+    z-index: 1; /*มีค่าเป็นบวก เมนูจะอยู่ข้างบน*/
+}
+
+.navBar ul li::after{ /*เมื่อกดเมนู*/
+    content: '';
+    height: 3px;
+    width: 0;
+    background: #a785c9;
+    position: absolute; /*แสดงผลเป็นอิสระ คือจะอยู่ตรงไหนก็ได้ จะอยู่แค่ภายใต้ element ที่ครอบมันอีกทีเท่านั้น*/
+    left: 0;
+    bottom: 0;
+    z-index: 1; /*มีค่าเป็นบวก เมนูจะอยู่ข้างบน*/
+}
+
+.navBar ul li:hover::after{ 
+    width: 100%;
+    z-index: 1; /*มีค่าเป็นบวก เมนูจะอยู่ข้างบน*/
+}
+
+.heading{ /*หัวฟอร์ม*/
+    text-align: center; /*ข้อความอยู่ตรงกลาง*/
+    width: 100%;
+    margin: auto; /*ระยะห่างภายนอกกรอบ จัดอัตโนมัติ ด้านนอก*/
+    margin-top:10px; /*เว้นระยะกรอบด้านนอกด้านบน เป็น 10 px*/
+    color: white;
+    font-size: 50px;
+}
+
+#head{ /*ชื่อหัวเรื่องฟอร์ม*/
+    font-size: 1.6em;
+}
+
+#content1{ /*ข้อมูลในฟอร์ม*/
+    width: 90%;
+    margin: auto; /*ระยะห่างภายนอกกรอบ จัดอัตโนมัติ ด้านนอก*/
+}
+
+form{ /*ฟอร์ม*/
+    background-color: rgba(230, 201, 201, 0.7);
+    padding-top: 40px; /*เว้นระยะขอบด้านใน ด้านละ 40 px */
+    display: flex; /*วางแนวนอนของในกล่องก็ไหลตามแนวนอน*/
+    align-items: center;
+    justify-content: center; /*จัด Flex Item ให้อยู่ตรงกลาง*/
+    width: 60%;
+    border-radius: 5px;
+    margin: auto; /*ระยะห่างภายนอกกรอบ จัดอัตโนมัติ ด้านนอก*/
+    margin-top: 40px;/*เว้นระยะกรอบด้านนอกด้านบน เป็น 40 px*/
+    padding-bottom: 60px; /*เว้นระยะกรอบด้านในส่วนด้านล่าง เป็น 60 px*/
+}
+
+form .box{ /*ช่องกรอกฟอร์ม*/
+    width: 98%;
+    height: 2.8em;
+    position: relative; /*จัดตำแหน่งโดยอิงจาก div*/
+    bottom: 10px;
+    border-radius:5px;
+    padding: 7.5px;/*เว้นระยะขอบด้านในทุกด้าน ด้านละ 7.5 px */
+}
+
+#textarea{ /*พื้นที่ในการกรอกข้อความ*/
+    width: 98.5%;
+    height:125px;
+    position: relative; /*จัดตำแหน่งโดยอิงจาก div*/
+    bottom: 30px; 
+}
+ 
+button{ /*ปุ่มกดSubmit*/
+    width: 98.5%;
+    height: 3em;
+    position: relative; /*จัดตำแหน่งโดยอิงจาก div*/
+    top:40px;
+    background-color: rgba(248, 152, 250, 0.479);
+    border: none; /*กรอบตรงปุ่มหายไป*/
+    color: rgb(255,255,2555);
+    margin-bottom: 5px; /*เว้นระยะขอบล่างด้านนอก 5 px */
+    cursor: pointer; /*คำสั่งเปลี่ยนการแสดงผลของเมาส์จากลูกศร*/
+}
+
+textarea::placeholder{ /*ตัวอย่างข้อความที่ขึ้นก่อนที่จะคลิกเมาท์พิมพ์กรอกฟอร์ม*/
+    font-size: 1.4em;
+    position: relative; /*จัดตำแหน่งโดยอิงจาก div*/
+    top:10px; 
+    left: 5px;
+    width: 90%;
+}
+
+input::placeholder{ /*ข้อความที่กรอก*/
+    font-size: 1.1em;
+    position: relative; /*จัดตำแหน่งโดยอิงจาก div*/
+    left: 10px;
+    width: 50%; 
+    font-weight: 400;
+}
+
+@media screen and (max-width:600px){ /*Responsive web ในส่วน form*/
+    form{
+        width: 100%;
+        margin: auto; /*ระยะห่างภายนอกกรอบ จัดอัตโนมัติ ด้านนอก*/
+    }
+}

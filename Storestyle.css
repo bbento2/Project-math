@@ -1,0 +1,349 @@
+
+*{
+    padding: 0; /*ช่องว่างภายในกรอบ เป็น0*/
+    margin: 0; /*ระยะห่างภายนอกกรอบ เป็น0*/
+    box-sizing: border-box; /*ให้ความกว้างของ div ก็จะเท่ากับ width ที่เราตั้งไว้ */
+    font-family:'Times New Roman', Times, serif;
+}
+
+.logo{ /*ปุ่มเมนู*/
+    width: 45px;
+    cursor: pointer; /*คำสั่งเปลี่ยนการแสดงผลของเมาส์จากลูกศร*/
+    padding: 0.25rem; /*ช่องว่างภายในกรอบ 0.25 rem โดยให้ค่าของมันไม่ได้ขึ้นอยู่กับ element parent แต่จะขึ้นอยู่กับขนาดของ root element */
+}
+
+ :root { /*ตกแต่งการ์ด*/
+    --primary: #AED3F6; /*พื้นหลังการ์ดสินค้า*/
+    /* --primary: #fff; */
+    --secondary: #8AC0F3; /*วงกลมตรงการ์ดสินค้า*/
+    --bg: #54555A; /*พื้นหลังเว็บ*/
+    /* --bg: #f5f5f5; */
+}
+
+body { /*หน้าเว็บ*/
+    background-color: var(--bg);
+    overflow-x: hidden; /*ซ่อนเนื้อหาแกน x*/
+}
+
+.slider {  
+    background-color: var(--bg);
+    padding: 1rem; /*ช่องว่างภายในกรอบ 1 rem  โดยให้ค่าของมันไม่ได้ขึ้นอยู่กับ element parent แต่จะขึ้นอยู่กับขนาดของ root element */
+
+    margin: 7rem auto; /*เว้นระยะขอบบนและล่าง 7 rem และ เว้นระยะขอบซ้ายและขวา  อัตโนมัติ  ด้านนอก*/
+    display: flex; /*วางแนวนอนของในกล่องก็ไหลตามแนวนอน*/
+    /* display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    place-items: center;
+    grid-gap: 2rem; */
+
+    font: normal 1rem sans-serif;
+}
+
+.card { /*การ์ดสินค้า*/
+    position: relative; /*จัดตำแหน่งโดยอิงจาก div*/
+    left:0;
+
+    min-width: 17rem;
+    height: 23rem;
+    background-color:var(--primary); 
+    color: #000000; /*สีข้อความ*/
+    border-radius: 1rem;
+    border: .1rem solid transparent;
+
+    box-shadow: 0 .2rem .6rem #0003;
+    transition: .5s ease-in-out; /*ภาพเคลื่อนไหว .5  วินาที ลอยออกไป*/
+}
+
+@media screen and (max-width: 768px) { /*Responsive Web*/
+    .card { /*การ์ดสินค้า*/
+        min-width: 21rem;
+    }
+}
+
+.card:not(:first-child) { /*ไม่ใช่คลาสการ์ด*/
+    margin-left: 2rem; /*เว้นระยะขอบด้านนอกทางด้านซ้าย 2 rem*/
+}
+
+.card:first-child {  /*คลาสการ์ด*/
+    margin-left: 4rem; /*เว้นระยะขอบด้านนอกทางด้านซ้าย 4 rem*/
+}
+
+.card:hover { /*หลังชี้ที่การ์ดสินค้า*/
+    border: .1rem solid var(--secondary);
+    transform: scale(1.05); /*ปรับขนาด โดยกว้างยาวเป็น 1.05 */
+}
+
+
+.card-content { /*ข้อมูลในการ์ดสินค้า*/
+    position: absolute; /*แสดงผลเป็นอิสระ คือจะอยู่ตรงไหนก็ได้ จะอยู่แค่ภายใต้ element ที่ครอบมันอีกทีเท่านั้น*/
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    
+    overflow: hidden; /*ซ่อนเนื้อหา*/
+    border-radius: inherit; /*สืบทอด*/
+    
+    display: flex; /*วางแนวนอนของในกล่องก็ไหลตามแนวนอน*/
+    flex-direction: column; /*เรียงเป็นแถวแนวตั้ง จากบนลงล่าง*/
+    justify-content: space-around; /*กำหนดให้มีระยะห่างหรือช่องว่างให้ ขนาดเท่าๆกันและมีทิศทางตามแนวนอน*/
+    align-items: center;
+}
+
+.card-content::before, .card-content::after {
+    position: absolute; /*แสดงผลเป็นอิสระ คือจะอยู่ตรงไหนก็ได้ จะอยู่แค่ภายใต้ element ที่ครอบมันอีกทีเท่านั้น*/
+    content: "";
+    background-color: var(--secondary);
+    border-radius: 50%;
+    transition: .5s ease-in-out; /*ภาพเคลื่อนไหว .5  วินาที ลอยออกไป*/
+}
+
+.card-content::before { /*ข้อมูลในการ์ดช่วงก่อน*/
+    top: -6%;
+    right: -6%;
+    width: 9rem;
+    height: 9rem;
+}
+
+.card-content::after { /*ข้อมูลในการ์ดช่วงหลัง*/
+    bottom: -6%;
+    left: -6%;
+    width: 5rem;
+    height: 5rem;
+}
+
+.card-content:hover::before { /*ข้อมูลในการ์ดก่อนใช้เม้าท์ชี้*/
+    transform: scale(1.8); /*ปรับขนาด โดยกว้างยาวเป็น 1.8*/
+}
+
+.card-content:hover::after { /*ข้อมูลในการ์ดหลังใช้เม้าท์ชี้*/
+    transform: scale(0); /*ปรับขนาด โดยกว้างยาวเป็น 0*/
+}
+
+.card-img, 
+.card-title { /*รูปและชื่อสินค้าในการ์ด*/
+    transform: translateY(4rem); /*ให้อยู่ตำแหน่งแกน y 4 rem*/
+    transition: .5s ease-in-out; /*ภาพเคลื่อนไหว .5  วินาที ลอยออกไป*/
+}
+
+.card-img { /*รูปสินค้า*/
+    width: auto;
+    height: 9.5rem;
+}
+
+.card-title { /*ชื่อสินค้า*/
+    font-size: 1rem;
+    text-transform: capitalize;
+    transition-delay: .1s;
+}
+
+.card-body, 
+.card-footer { /**/
+    transform: translateY(8rem); /*ให้อยู่ตำแหน่งแกน y 8 rem*/
+    transition: .5s ease-in-out; /*ภาพเคลื่อนไหว .5  วินาที ลอยออกไป*/
+}
+
+.card-body { /**/
+    width: 100%;
+    display: flex; /*วางแนวนอนของในกล่องก็ไหลตามแนวนอน*/
+    justify-content: space-around; /*กำหนดให้มีระยะห่างหรือช่องว่างให้ ขนาดเท่าๆกันและมีทิศทางตามแนวนอน*/
+    align-items: center;
+
+    transition-delay: .2s;
+}
+
+.card:hover .card-img,
+.card:hover .card-title,
+.card:hover .card-body,
+.card:hover .card-footer { 
+    transform: translateY(0); /*ให้อยู่ตำแหน่งแกน y ที่ 0*/
+}
+
+.card-footer { 
+    transition-delay: .3s;
+}
+
+.card-price { /*ราคา*/
+    font: bolder 1.5rem sans-serif;
+}
+
+.btn { /*ปุ่ม*/
+    padding: 1rem 2rem; /*เว้นระยะขอบบนและล่างด้านละ 1 rem และ เว้นระยะขอบซ้ายและขวา ด้านละ 2 rem  ด้านใน*/
+    background-color: unset;
+    border: none;
+    outline: none;
+    border-radius: 2rem;
+    color: #000000;
+    cursor: pointer; /*คำสั่งเปลี่ยนการแสดงผลของเมาส์จากลูกศร*/
+}
+
+.btn-success { /*เมื่อกดปุ่มซื้อ*/
+    background-color: var(--secondary); 
+}
+
+.btn-border { /*กรอบปุ่ม*/
+    border: .1rem solid var(--secondary);
+}
+
+.arrow { /*ลูกศร*/
+    position: absolute; /*แสดงผลเป็นอิสระ คือจะอยู่ตรงไหนก็ได้ จะอยู่แค่ภายใต้ element ที่ครอบมันอีกทีเท่านั้น*/
+    top:50%;
+    transform: translateY(-50%); /*ให้อยู่ตำแหน่งแกน y ครึ่งหนึ่งของหน้าเว็บ*/
+    
+    width: 3rem;
+    height: 3rem;
+    background-color: #fff;
+    color: #000;
+
+    border-radius: 50%;
+    outline: .5rem solid transparent; /*ความโปร่งใส*/
+    font: 800 1.5rem sans-serif;
+    text-align: center;
+    line-height: 3rem; 
+    user-select: none; /*ไม่ให้ User copy ข้อความในเว็บ*/
+
+    cursor: pointer;  /*คำสั่งเปลี่ยนการแสดงผลของเมาส์จากลูกศร*/
+    transition: .5s ease-in-out; /*ภาพเคลื่อนไหว .5  วินาที ลอยออกไป*/
+   
+}
+
+.arrow:active { /*ลูกศร ตอนกดปุ่มแล้ว*/
+    background-color: #ddd;
+    /* background-color: #666; */
+}
+
+.left { /*ลูกศรซ้าย*/
+    left: 1rem;
+}
+
+.right { /*ลูกศรขวา*/
+    right: 1rem;
+}
+
+.shopping-cart { /*ตะกร้า*/
+    position: absolute; /*แสดงผลเป็นอิสระ คือจะอยู่ตรงไหนก็ได้ จะอยู่แค่ภายใต้ element ที่ครอบมันอีกทีเท่านั้น*/
+    right: 1rem;
+    bottom: 1rem;
+
+    width: 4rem;
+    height: 4rem;
+    background-color: #fff;
+    border-radius: 50%;
+    outline: .5rem solid transparent;
+    
+    text-align:center;
+    line-height: 4rem;
+
+    cursor: pointer; /*คำสั่งเปลี่ยนการแสดงผลของเมาส์จากลูกศร*/
+    box-shadow: 0 .2rem .6rem #0006;
+    transition: .5s ease-in-out; /*ภาพเคลื่อนไหว .5  วินาที ลอยออกไป*/
+}
+
+.shopping-cart.active { /*เมื่อปุ่มตะกร้าทำงาน*/
+    width: 8rem;
+    border-radius: .8rem;
+}
+
+.shopping-cart.active > span{  
+    margin-left: -4rem;
+}
+
+.arrow:hover, .shopping-cart:hover { /*เมื่อกดปุ่มลูกศรและตะกร้า*/
+    outline: .5rem solid #fff5;
+}
+
+.shopping-cart::before { /*ก่อนปุ่มตะกร้า*/
+    position: absolute; /*แสดงผลเป็นอิสระ คือจะอยู่ตรงไหนก็ได้ จะอยู่แค่ภายใต้ element ที่ครอบมันอีกทีเท่านั้น*/
+    content: attr(data-product-count);
+
+    top: -.5rem;
+    right: -.5rem;
+
+    width: 2rem;
+    height: 2rem;
+
+    color: #fff;
+    background-color: #f00;
+    font-family: sans-serif;
+    
+    border-radius: 50%;
+    
+    text-align:center;
+    line-height: 2rem;
+}
+
+.cart-icon {  /*ไอคอนตะกร้า*/
+    font-size: 2rem;
+    transition: .5s ease-in-out; /*ภาพเคลื่อนไหว .5  วินาที ลอยออกไป*/
+}
+
+/* For Js Code */
+
+.flying-img { /*รูปมีเอคเฟคเด้งขึ้น*/
+    position: absolute; /*แสดงผลเป็นอิสระ คือจะอยู่ตรงไหนก็ได้ จะอยู่แค่ภายใต้ element ที่ครอบมันอีกทีเท่านั้น*/
+    animation: fly_to_cart 1s ease-in-out;
+}
+
+@keyframes fly_to_cart { /*กำหนดให้สไตล์ที่เป็นอนิเมชั่นของสินค้าไปใส่ในตะกร้า เป็นตามที่กำหนดใน keyframe*/
+    0% { /*เริ่มต้น*/
+        left: 0;
+        top: 0;
+    }
+    45%, 50% {
+        left: var(--left);
+        top: 60px;
+    }
+    80%, 90% {
+        left: var(--left);
+        top: var(--top);
+        transform: scale(.2);  /*ปรับขนาด โดยกว้างยาวเป็น .2*/
+    }
+    100% { /*สิ้นสุด*/
+        left: calc(var(--left) + 40px);
+        top: var(--top);
+        transform: scale(.2); /*ปรับขนาด โดยกว้างยาวเป็น .2*/
+    }
+}
+
+.dropbtn{/*เมนูแบบแทบบาร์ลงมา*/
+    background-color: #54555A;
+    color: white;
+    padding: 15px; /*ช่องว่างภายในกรอบ 15 px โดยให้ค่าของมันไม่ได้ขึ้นอยู่กับ element parent แต่จะขึ้นอยู่กับขนาดของ root element */
+    font-size: 16px;
+    border: none;
+    position:fixed; /*ไม่ให้แถบบาร์เลื่อนตำแหน่ง*/
+}
+
+.dropdown{ /*แถบบาร์เมนู*/
+    position: relative; /*จัดตำแหน่งโดยอิงจาก div*/
+    display: inline-block; /*อยู่ในบรรทัดเดียวกัน*/
+}
+
+.dropdown-content { /*เมนูย่อยในแถบบาร์*/
+    display: none;
+    position: absolute; /*แสดงผลเป็นอิสระ คือจะอยู่ตรงไหนก็ได้ จะอยู่แค่ภายใต้ element ที่ครอบมันอีกทีเท่านั้น*/
+    background-color: lightgrey;
+    min-width: 200px;
+    left: 0;
+    z-index: 1; /*มีค่าเป็นบวก เมนูจะอยู่ข้างบน*/
+    opacity: 0.9; /*ความชัดของกล่องแถบบาร์เมนู*/
+} 
+
+.dropdown-content a { /*เมนูย่อย*/
+    color: black;
+    padding: 20px 20px; /*เว้นระยะขอบบนและล่าง ด้านละ 20 px และ เว้นระยะขอบซ้ายและขวา ด้านละ 20 px ด้านใน*/
+    text-decoration: none;
+    display: block; /*ให้แถบบาร์เป็นกล่อง*/
+}
+
+.dropdown-content a:hover { /*เมื่อใช้เม้าท์คลิกโดนเมนูย่อยในแถบบาร์เมนู*/
+    background-color: white;
+}
+
+.dropdown:hover .dropdown-content { /*เมื่อกดแถบเมนู*/
+    display: block; /*ให้แถบบาร์เป็นกล่อง*/
+}
+
+.dropdown:hover .dropbtn { /*แถบเมนูและปุ่มเมนู*/
+    background-color: grey;
+}

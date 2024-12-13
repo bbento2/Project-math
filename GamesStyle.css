@@ -1,0 +1,68 @@
+*{
+    margin: 0; /*ระยะห่างภายนอกกรอบ เป็น0*/
+    padding: 0; /*ช่องว่างภายในกรอบ เป็น0*/
+    font-family:'Times New Roman', Times, serif;
+}
+
+.logo{ /*ปุ่มเมนู*/
+    width: 45px;
+    cursor: pointer; /*คำสั่งเปลี่ยนการแสดงผลของเมาส์จากลูกศร*/
+    padding: 0.5rem; /*ช่องว่างภายในกรอบ เป็น 0.5 rem โดยให้ค่าของมันไม่ได้ขึ้นอยู่กับ element parent แต่จะขึ้นอยู่กับขนาดของ root element */
+    
+}
+
+.dropbtn{/*เมนูแบบแถบบาร์ลงมา*/
+    background-color: rgb(174, 148, 182);
+    color: white;
+    padding: 10px; /*ช่องว่างภายในกรอบ 10 px โดยให้ค่าของมันไม่ได้ขึ้นอยู่กับ element parent แต่จะขึ้นอยู่กับขนาดของ root element */
+    font-size: 16px;
+    border: none;
+    position:fixed; /*ไม่ให้แถบบาร์เลื่อนตำแหน่ง*/
+}
+
+.dropdown{ /*แถบบาร์เมนู*/
+    position: relative; /*จัดตำแหน่งโดยอิงจาก div*/
+    display: inline-block; /*อยู่ในบรรทัดเดียวกัน*/
+    
+}
+
+.dropdown-content { /*เมนูย่อยในแถบบาร์*/
+    display: none;
+    position: absolute; /*แสดงผลเป็นอิสระ คือจะอยู่ตรงไหนก็ได้ จะอยู่แค่ภายใต้ element ที่ครอบมันอีกทีเท่านั้น*/
+    background-color: lightgrey;
+    min-width: 200px;
+    left: 0;
+    z-index: 1;  /*มีค่าเป็นบวก เมนูจะอยู่ข้างบน*/
+    opacity: 0.9; /*ความชัดของกล่องแถบบาร์เมนู*/
+} 
+
+.dropdown-content a { /*เมนูย่อย*/
+    color: black;
+    padding: 20px 20px; /*เว้นระยะขอบบนและล่าง ด้านละ 20 px และ เว้นระยะขอบซ้ายและขวา ด้านละ 20 px ด้านใน*/
+    text-decoration: none;
+    display: block; /*ให้แถบบาร์เป็นกล่อง*/
+}
+
+.dropdown-content a:hover { /*เมื่อใช้เม้าท์คลิกโดนเมนูย่อยในแถบบาร์เมนู*/
+    background-color: white;
+}
+
+.dropdown:hover .dropdown-content { /*เมื่อกดแถบเมนู*/
+    display: block; /*ให้แถบบาร์เป็นกล่อง*/
+}
+
+.dropdown:hover .dropbtn { /*แถบเมนูและปุ่มเมนู*/
+    background-color: grey;
+}
+
+.bg-music { /*เพลง*/
+    float:right; /*วางไอคอนไว้ทางขวา*/
+   margin-right: 5%;  /*เว้นระยะกรอบด้านนอกด้านขวา 4%*/
+    margin-top: 400px;  /*เว้นระยะกรอบด้านนอกด้านบน เป็น 400 px*/
+    display: flex; /*วางแนวนอนของในกล่องก็ไหลตามแนวนอน*/
+}
+
+#icon{ /*ไอคอนเปิดหรือปิดเพลง*/
+    width: 80px;
+    cursor:pointer; /*คำสั่งเปลี่ยนการแสดงผลของเมาส์จากลูกศร*/
+}

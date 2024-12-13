@@ -1,0 +1,137 @@
+/*home page*/
+*{
+    margin: 0; /*ระยะห่างภายนอกกรอบ เป็น0*/
+    padding: 0; /*ช่องว่างภายในกรอบ เป็น0*/
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.banner{ /*เมนู*/
+    width: 100%; /*ความกว้าง 100%*/
+    height: 100vh;
+    background-size: cover; /*รูปภาพแสดงผลตามขนาดพื้นที่ที่ถูกต้อง*/
+    background-position: center; /*ให้เมนูอยู่ตรงกลางและเนื้อหาเรียงไปทางแนวนอน*/
+}
+
+.navBar{ /*เมนู*/
+    width: 80%; /*ความกว้าง 80%*/
+    margin:auto; /*ระยะห่างภายนอกกรอบ จัดอัตโนมัติ ด้านนอก*/
+    padding: 35px 0; /*เว้นระยะขอบบนและล่าง ด้านละ 35 px และ เว้นระยะขอบซ้ายและขวา อัตโนมัติ ด้านใน*/
+    display: flex; /*วางแนวนอนของในกล่องก็ไหลตามแนวนอน*/
+    align-items: center;
+    justify-content: space-between; /*จัด Flex Item ให้อยู่ระหว่างกัน*/
+    z-index: 1; /*มีค่าเป็นบวก เมนูจะอยู่ข้างบน*/
+}
+
+.logo{ /*โลโก้เกม*/
+    width: 150px;  /*ความกว้าง 150px*/
+    cursor: pointer; /*คำสั่งเปลี่ยนการแสดงผลของเมาส์จากลูกศร*/
+    padding: 1rem; /*ช่องว่างภายในกรอบ เป็น 1 rem โดยให้ค่าของมันไม่ได้ขึ้นอยู่กับ element parent แต่จะขึ้นอยู่กับขนาดของ root element */
+}
+
+li {
+    list-style: none; /*เป็นการกำหนด Style แบบรวม ๆ*/
+}
+
+a {
+    text-decoration: none; /*ไม่ให้มีเส้นใต้ข้อความ*/
+}
+
+.navBar ul li{
+    list-style: none;
+    display: inline-block; /*อยู่ในบรรทัดเดียวกัน*/
+    margin: 0 20px; /*เว้นระยะขอบบนและล่าง เป็น 0 และ เว้นระยะขอบซ้ายและขวา ด้านละ 20px  ด้านนอก*/
+    padding:1rem; /*ช่องว่างภายในกรอบ เป็น 1 rem โดยให้ค่าของมันไม่ได้ขึ้นอยู่กับ element parent แต่จะขึ้นอยู่กับขนาดของ root element */
+    z-index: 1; /*มีค่าเป็นบวก เมนูจะอยู่ข้างบน*/
+}
+
+.navBar ul li a{ /*เมนู*/
+    text-decoration: none; /*ไม่ให้มีเส้นใต้ข้อความ*/
+    color: white;
+    text-transform: uppercase; /* กำหนดให้ทุกๆ ตัวเป็นตัวใหญ่*/
+    font-size: 1.25vw;
+    font-weight: 400;/*ขนาดฟ้อน 400*/
+    letter-spacing: 0.15vw;/*กำหนดระยะห่างระหว่างตัวอักษร*/
+    z-index: 1; /*มีค่าเป็นบวก เมนูจะอยู่ข้างบน*/
+}
+
+.navBar ul li::after{  /*เมื่อกดเมนู*/
+    content: '';
+    height: 3px;
+    width: 0; 
+    background: #a785c9;
+    position: absolute; /*แสดงผลเป็นอิสระ คือจะอยู่ตรงไหนก็ได้ จะอยู่แค่ภายใต้ element ที่ครอบมันอีกทีเท่านั้น*/
+    left: 0;
+    bottom: 0;
+    z-index: 1; /*มีค่าเป็นบวก เมนูจะอยู่ข้างบน*/
+}
+
+.navBar ul li:hover::after{ /*หลังกดเมนู*/
+    width: 100%;
+    z-index: 1; /*มีค่าเป็นบวก เมนูจะอยู่ข้างบน*/
+}
+
+.content{ /*ข้อมูลในเว็บ*/
+    width: 100%;
+    position: absolute; /*แสดงผลเป็นอิสระ คือจะอยู่ตรงไหนก็ได้ จะอยู่แค่ภายใต้ element ที่ครอบมันอีกทีเท่านั้น*/
+    top: 50%;
+    transform: translateY(-50%); /*ให้อยู่ตำแหน่งแกน y ครึ่งหนึ่งของหน้าเว็บ*/
+    text-align: center;/*ข้อความอยู่ตรงกลาง*/
+    color:white ;
+}
+
+.content h1{ /*หัวข้อ+ข้อมูลที่อยู่ในเว็บ ยกเว้นเมนู เพลง*/
+    font-size: 70px;
+    margin-top: 80px; /*เว้นระยะกรอบด้านนอกนด้านบน เป็น 80 px*/
+}
+
+.content p{ /*ข้อมูลในเว็บตรงอธิบายเกม*/
+    margin: 20px auto; /*เว้นระยะขอบบนและล่าง ด้านละ 20 px และ เว้นระยะขอบซ้ายและขวา อัตโนมัติ ด้านนอก*/
+    font-weight: 100;
+    line-height: 25px;
+}
+
+button{ /*ปุ่มกดเล่นเกม*/
+    width: 200px;
+    padding: 15px 0; /*เว้นระยะขอบบนและล่างด้านละ 15 px และ เว้นระยะขอบซ้ายและขวา อัตโนมัติ  ด้านใน*/
+    text-align: center; /*ข้อความอยู่ตรงกลาง*/
+    margin: 20px 10px; /*เว้นระยะขอบบนและล่าง ด้านละ 20 px และ เว้นระยะขอบซ้ายและขวาด้านละ 10px ด้านนอก*/
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid white;
+    background: transparent; 
+    color: white;
+    cursor: pointer; /*คำสั่งเปลี่ยนการแสดงผลของเมาส์จากลูกศร*/
+    position: relative; /*จัดตำแหน่งโดยอิงจาก div*/
+    overflow: hidden;
+}
+
+span{ /*ตกแต่งปุ่มกดเล่นเกม*/
+    background: #a785c9;
+    height: 100%; 
+    width: 100%; 
+    border-radius: 25px;
+    position: absolute; /*แสดงผลเป็นอิสระ คือจะอยู่ตรงไหนก็ได้ จะอยู่แค่ภายใต้ element ที่ครอบมันอีกทีเท่านั้น*/
+    left: 0; /*ตำแหน่งก็จะอยู่บนซ้ายของ browser */
+    bottom: 0;/*ตำแหน่งก็จะอยู่ด้านล่างของ browser */
+    z-index: -1; /*ค่าเป็นลบ จะอยู่ด้านล่าง*/
+    transition: 0.5s; /*โผล่มาทั้งหมด 0.5วิ*/ 
+}
+
+button:hover span{ /*สไตล์ปุ่มกดเริ่มเกม*/
+    width: 100%;
+}
+
+button:hover{ /*เมื่อวางเม้าท์ที่ปุ่มกดเริ่มเกม*/
+    border: none; /*กรอบตรงปุ่มหายไป*/
+}
+
+.bg-music { /*เพลง*/
+    float:right; /*วางไอคอนไว้ทางขวา*/
+   margin-right: 4%; /*เว้นระยะกรอบด้านนอกด้านขวา 4%*/
+    margin-top: 400px; /*เว้นระยะกรอบด้านนอกด้านบน เป็น 400 px*/
+    display: flex; /*วางแนวนอนของในกล่องก็ไหลตามแนวนอน*/
+}
+#icon{
+    width: 80px;
+    cursor:pointer; /*คำสั่งเปลี่ยนการแสดงผลของเมาส์จากลูกศร*/
+}
